@@ -1,0 +1,13 @@
+$root-width: 100%;
+$root-height: 100vh;
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    #root {
+        width: $root-width;
+        height: $root-height;
+    }
+}
