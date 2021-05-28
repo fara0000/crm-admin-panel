@@ -24,7 +24,6 @@ coverage
 .idea
 node_modules
 dist
-package-lock.json
 
 # nyc test coverage
 .nyc_output
@@ -53,6 +52,10 @@ typings/
 
 # Optional npm cache directory
 .npm
+.idea/
+tasks.xml
+.iws
+workspace.xml
 
 # Optional eslint cache
 .eslintcache
