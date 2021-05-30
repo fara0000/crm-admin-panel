@@ -1,0 +1,14 @@
+@import '~antd/dist/antd.css';
+$search-wrapper-width: 681px;
+$search-wrapper-height: 41px;
+
+.search-input-wrapper {
+  width: $search-wrapper-width;
+  height: $search-wrapper-height;
+  display: flex;
+  align-items: center;
+}
+
+.ant-input {
+  border-radius: 20px;
+}

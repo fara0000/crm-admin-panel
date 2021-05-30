@@ -1,0 +1,18 @@
+$main-wrapper-width: 100%;
+$main-wrapper-height: 80px;
+$button-wrapper-width: 185px;
+$button-wrapper-height: 100%;
+
+.body-header-content-wrapper {
+  width: $main-wrapper-width;
+  height: $main-wrapper-height;
+  padding-left: 230px;
+  display: flex;
+
+  .body-header-content__button-wrapper {
+    width: $button-wrapper-width;
+    height: $button-wrapper-height;
+    display: flex;
+    align-items: center;
+  }
+}

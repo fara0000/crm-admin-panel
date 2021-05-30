@@ -1,0 +1,14 @@
+$main-wrapper-width: 100%;
+$main-wrapper-height: 66px;
+$main-wrapper-background-color: #D1E0ED;
+
+.header-request-page-wrapper {
+  width: $main-wrapper-width;
+  height: $main-wrapper-height;
+  opacity: 1;
+  display: flex;
+  padding-left: 15px;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $main-wrapper-background-color;
+}

@@ -5,6 +5,7 @@ import {
     Wrapper,
 } from './styledComponent';
 import DrawerMenu from '../components/drawerMenu/drawerMenu';
+import RequestPage from "../views/requestsPage";
 // import Routers from '../modules/router';
 
 // interface Props {
@@ -17,7 +18,7 @@ const App: FC = () => (
         <DrawerMenu
             // t={t}
         />
-
+        <RequestPage />
     </Wrapper>
 );
 
