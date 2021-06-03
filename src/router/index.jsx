@@ -1,4 +1,4 @@
-import React from 'React';
+import React from 'react';
 import RequestPage from '../views/requestsPage';
 import ActivesPage from "../views/activesPage";
 import KnowledgeBasePage from "../views/knowledgeBasePage";
