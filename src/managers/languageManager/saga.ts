@@ -1,16 +1,15 @@
 import { takeEvery, call } from 'redux-saga/effects';
-import constants from '../../constants';
-import { changeLanguage } from '../../lang/localization';
-import { ChangeLanguageAction } from '../../types';
+import { ActionTypes } from './ActionTypes';
+import { changeLanguage } from '../../localization/localization';
+import * as languageActions from '../languageManager/actions';
 
 export default function* watchLanguageManager() {
-    yield takeEvery(constants.ACTION_TYPES.CHANGE_LANGUAGE_STORE, handleChangeLanguage)
+    yield takeEvery(ActionTypes.CHANGE_LANGUAGE_STORE, handleChangeLanguage);
 }
 
-export function* handleChangeLanguage(action: ChangeLanguageAction) {
-    if (!action.payload) {
+export function* handleChangeLanguage(action: languageActions.changeLanguageStoreType) {
+    if (!action.data) {
         return;
     }
-
-    yield call(changeLanguage, action.payload);
+    yield call(changeLanguage, action.data);
 }

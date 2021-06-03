@@ -1,15 +1,24 @@
 import React, { FC } from 'react';
-import TableContent from '../../../../../../components/tableContent';
+import TableContent from '../tableContent';
+import { useDispatch } from 'react-redux';
+import * as requestPageActions from '../../../../../../managers/requestsPageManager/actions';
 import './index.scss';
 
 export interface Props<T> {
     data: Array<T>;
+    handleEditForm: any;
 }
 
 export const TableRow: FC<Props<object>> = (props) => {
     const {
         data,
+        handleEditForm,
     } = props;
+    const dispatch = useDispatch();
+
+    const getSelectedTaskId = (id: number) => {
+        dispatch(requestPageActions.getTaskById(id));
+    }
 
     const columns = [
         {
@@ -23,14 +32,14 @@ export const TableRow: FC<Props<object>> = (props) => {
             dataIndex: 'name',
         },
         {
-            key: 'status',
+            key: 'statusName',
             title: 'Статус',
-            dataIndex: 'status',
+            dataIndex: 'statusName',
         },
         {
-            key: 'author',
+            key: 'executorName',
             title: 'Испольнитель',
-            dataIndex: 'author',
+            dataIndex: 'executorName',
         },
     ];
 
@@ -38,7 +47,12 @@ export const TableRow: FC<Props<object>> = (props) => {
 
     return (
         <div className='table-row-wrapper'>
-            <TableContent columns={columns} data={data}/>
+            <TableContent
+                data={data}
+                columns={columns}
+                handleEditForm={handleEditForm}
+                getSelectedTaskId={getSelectedTaskId}
+            />
         </div>
     )
 }

@@ -13,7 +13,7 @@ export default (state = initialState, action: any): InitialState => {
         case ActionTypes.CHANGE_LANGUAGE_STORE:
             return {
                 ...state,
-                lang: action.payload
+                lang: action.data
             }
         default:
             return state;

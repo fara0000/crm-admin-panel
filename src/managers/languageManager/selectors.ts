@@ -1,0 +1,1 @@
+export const getLocale = (state: any) => state.languageReducer.lang;

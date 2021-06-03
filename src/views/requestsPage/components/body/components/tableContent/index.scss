@@ -1,0 +1,24 @@
+@import "../../../../../../../node_modules/antd/dist/antd.css";
+
+.table-wrapper {
+  width: auto;
+  height: auto;
+}
+
+.ant-drawer-header {
+  color: rgba(0, 0, 0, 0.65);
+  background: #1A4876;
+  border-radius: 0;
+
+  .anticon svg {
+    color: #FFFFFF;
+  }
+
+  .ant-drawer-title {
+    color: #FFFFFF;
+  }
+}
+
+.ant-table-thead > tr > th, .ant-table-tbody > tr > td {
+  cursor: pointer;
+}

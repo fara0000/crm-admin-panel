@@ -4,22 +4,19 @@ import React, {
 import {
     Wrapper,
 } from './styledComponent';
-import DrawerMenu from '../components/drawerMenu/drawerMenu';
-import RequestPage from "../views/requestsPage";
-// import Routers from '../modules/router';
+import LeftSideBarMenu from '../components/leftSideBarMenu/leftSideBarMenu';
+import Router from "../router";
+// @ts-ignore
+import { useRoutes } from "hookrouter";
 
-// interface Props {
-//     t: any;
-// }
+const App: FC = () => {
+    const routeResult = useRoutes(Router);
 
-const App: FC = () => (
-    <Wrapper>
-        {/*<Routers />*/}
-        <DrawerMenu
-            // t={t}
-        />
-        <RequestPage />
-    </Wrapper>
-);
-
+    return (
+        <Wrapper>
+            <LeftSideBarMenu/>
+            {routeResult}
+        </Wrapper>
+    );
+}
 export default (App);

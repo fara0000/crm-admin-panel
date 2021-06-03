@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import userPageReducer from '../../managers/usersPageManager/reducer';
 import languageReducer from '../../managers/languageManager/reducer';
+import requestsPageReducer from '../../managers/requestsPageManager/reducer';
 
 const rootReducer = combineReducers({
-    userPageReducer,
     languageReducer,
+    requestsPageReducer,
 });
 
 export default rootReducer;

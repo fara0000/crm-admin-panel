@@ -1,8 +1,9 @@
 {
     "stuff": "Сотрудники",
-    "requests": "Заявки",
     "clients": "Клиекты",
     "actives": "Активы",
+    "requests": "Заявки",
     "settings": "Настройки",
-    "knowledgeBase": "База Знаний"
+    "knowledgeBase": "База Знаний",
+    "createRequest": "Создать заявку"
 }

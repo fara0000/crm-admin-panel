@@ -4,7 +4,6 @@ $main-wrapper-height: 100vh;
 $logo-wrapper-width: 100%;
 $logo-wrapper-height: 93px;
 $link-wrapper-width: 100%;
-$link-wrapper-height: 510px;
 $link-item-wrapper-width: 100%;
 $link-item-wrapper-height: 71px;
 $link-item-title-color: #FFFFFF;
@@ -14,6 +13,7 @@ $link-item-title-color: #FFFFFF;
   height: $main-wrapper-height;
   opacity: 1;
   background-color: $main-wrapper-color;
+  position: fixed;
 
   .drawer-menu__logo-container {
     width: $logo-wrapper-width;
@@ -26,7 +26,6 @@ $link-item-title-color: #FFFFFF;
 
   .drawer-menu__link-item-container {
     width: $link-wrapper-width;
-    height: $link-wrapper-height;
     display: flex;
     align-items: center;
     flex-direction: column;

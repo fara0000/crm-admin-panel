@@ -7,7 +7,6 @@ import {
     applyMiddleware,
 } from 'redux';
 import './localization/localization';
-
 import App from './app/App';
 import rootSagas from './roots/rootSagas';
 import rootReducer from './roots/rootReducers';

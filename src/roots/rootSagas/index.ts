@@ -3,10 +3,12 @@ import {
     all,
     call,
 } from 'redux-saga/effects';
-import watcherUserPage from '../../managers/usersPageManager/saga';
+import watcherRequestsPage from '../../managers/requestsPageManager/saga';
+import watcherLanguageManager from '../../managers/languageManager/saga';
 
 const sagaList: any = [
-    watcherUserPage,
+    watcherRequestsPage,
+    watcherLanguageManager,
 ];
 
 export default function* watchRootSagas() {
