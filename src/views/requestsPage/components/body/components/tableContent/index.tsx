@@ -31,7 +31,7 @@ export const TableContent: FC<Props<object>> = (props) => {
 
     useEffect(() => {
         setStatusColorsMap({});
-        data.forEach((item: any) => statusColorsMap[item.statusName] = (
+        data?.forEach((item: any) => statusColorsMap[item.statusName] = (
             <div
                 style={{
                     color: 'white',

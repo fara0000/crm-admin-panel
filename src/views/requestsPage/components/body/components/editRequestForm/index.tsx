@@ -168,11 +168,11 @@ export const EditRequestForm: FC<Props> = (props) => {
                                         onChange={(value: string) => {
                                             setStatusValue(value);
                                             setStatusId(
-                                                statuses.find((status: statusType) => status.name === value)?.id
+                                                statuses?.find((status: statusType) => status.name === value)?.id
                                             );
                                         }}>
                                         {
-                                            statuses.map((item: any) => <Option
+                                            statuses?.map((item: any) => <Option
                                                 key={item.name}
                                                 value={item.name}
                                             >
@@ -209,13 +209,13 @@ export const EditRequestForm: FC<Props> = (props) => {
                                             onChange={(value: string) => {
                                                 setUserValue(value);
                                                 setUserId(
-                                                    users.find((user: userType) => user.name === value)?.id
+                                                    users?.find((user: userType) => user.name === value)?.id
                                                 );
                                             }}
                                             style={{ color: '#1974D2' }}
                                         >
                                             {
-                                                users.map((item: any) => <Option
+                                                users?.map((item: any) => <Option
                                                     key={item.id}
                                                     value={item.name}
                                                 >
