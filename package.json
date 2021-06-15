@@ -10,16 +10,12 @@
     "build": "webpack --mode production",
     "check-types": "tsc"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fara0000/user-panel-react.git"
-  },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/fara0000/user-panel-react/issues"
+    "url": "https://github.com/fara0000/crm-admin-panel/issues"
   },
-  "homepage": "https://github.com/fara0000/user-panel-react#readme",
+  "homepage": "https://github.com/fara0000/crm-admin-panel#readme",
   "dependencies": {
     "@ant-design/icons": "latest",
     "@babel/polyfill": "^7.12.1",
