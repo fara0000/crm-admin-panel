@@ -10,6 +10,10 @@
     "build": "webpack --mode production",
     "check-types": "tsc"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fara0000/crm-admin-panel.git"
+  },
   "author": "",
   "license": "ISC",
   "bugs": {
