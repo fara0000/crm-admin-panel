@@ -38,7 +38,6 @@ export const NewRequestForm: FC<Props> = (props) => {
                         <Row gutter={16}>
                             <Col span={24}>
                                 <Form.Item
-                                    name={'Название'}
                                     label={'Название'}
                                     rules={[
                                         {
@@ -59,7 +58,6 @@ export const NewRequestForm: FC<Props> = (props) => {
                         <Row gutter={16}>
                             <Col span={24}>
                                 <Form.Item
-                                    name={'Описание'}
                                     label={'Описание'}
                                     rules={[
                                         {
@@ -79,14 +77,7 @@ export const NewRequestForm: FC<Props> = (props) => {
                         </Row>
                         <Row gutter={16}>
                             <Col span={24}>
-                                <Form.Item
-                                    name={'button'}
-                                    rules={[
-                                        {
-                                            required: true,
-                                        },
-                                    ]}
-                                >
+                                <Form.Item>
                                     <RounderButton
                                         title={'Сохранить'}
                                         style={{ width: 181 }}

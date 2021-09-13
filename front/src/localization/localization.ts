@@ -5,10 +5,19 @@ import ru from './locales/ru.json';
 import en from './locales/en.json';
 
 let localizationCreated = false;
-const locales = { ru, en };
+
+type LocaleResourcesType = {
+    [key: string]: string;
+};
+
+type LocalesType = {
+    [key: string]: LocaleResourcesType;
+};
+
+const locales: LocalesType = { ru, en };
 const langs = ['ru', 'en'];
 
-export const changeLanguage = (lang) => {
+export const changeLanguage = (lang: string): void => {
     if (!localizationCreated) {
         createLocalization(lang);
     }
@@ -17,8 +26,8 @@ export const changeLanguage = (lang) => {
         .then(() => console.log(`LOCALE CHANGE ON ${lang}`));
 };
 
-export const createLocalization = (lang = 'en') => {
-    const resources = langs.reduce((acc, item) => ({
+export const createLocalization = (lang: string = 'en'): void => {
+    const resources = langs.reduce((acc, item: string) => ({
         ...acc,
         [item]: {
             translation: locales[item],
@@ -35,6 +44,9 @@ export const createLocalization = (lang = 'en') => {
             interpolation: {
                 escapeValue: false,
             },
+        })
+        .then(() => {
+            console.log(`LOCALE CREATED FOR ${lang}`);
+            localizationCreated = true;
         });
-    localizationCreated = true;
 }

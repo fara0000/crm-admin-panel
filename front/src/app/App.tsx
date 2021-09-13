@@ -1,9 +1,5 @@
-import React, {
-    FC,
-} from 'react';
-import {
-    Wrapper,
-} from './styledComponent';
+import React, { FC } from 'react';
+import { Wrapper } from './styledComponent';
 import LeftSideBarMenu from '../components/leftSideBarMenu/leftSideBarMenu';
 import Router from "../router";
 // @ts-ignore
@@ -19,4 +15,4 @@ const App: FC = () => {
         </Wrapper>
     );
 }
-export default (App);
+export default App;
