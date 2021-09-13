@@ -98,175 +98,153 @@ export const EditRequestForm: FC<Props> = (props) => {
     }
 
     return (
-        <>
-            <DrawerComponent
-                title={`№ ${selectedTask.id} ${selectedTask.name}`}
-                width={'60%'}
-                height={'auto'}
-                onClose={onClose}
-                visible={visible}
-                children={
-                    <Form layout="vertical">
-                        <Row>
-                            <Col span={19}>
-                                <Row>
-                                    <span>
-                                        Описание
-                                    </span>
-                                    <div>
-                                        {selectedTask.description}
-                                    </div>
-                                </Row>
-                                <Row className={'first-col-row-item'}>
-                                    <Form.Item
-                                        name={'Comments'}
-                                        label={'Комментарии'}
-                                    >
-                                        <Input.TextArea
-                                            rows={4}
-                                            value={comment}
-                                            style={{minHeight: '120px', maxHeight: '120px', borderRadius: 0}}
-                                            onChange={(event: any) => setComment(event.target.value)}
-                                        />
-                                        <RounderButton
-                                            style={{ marginTop: '10px', width: 181 }}
-                                            title={'Сохранить'}
-                                            handle={editRequestData}
-                                        />
-                                    </Form.Item>
-                                </Row>
-                                <Row className={'first-col-row-item'}>
-                                    {
-                                        selectedTask.lifetimeItems?.map((item: any, index: number) =>
-                                            <>
-                                                {index !== 0 && <hr/>}
-                                                <div
-                                                    key={item.id}
-                                                >
-                                                    <span>{item.userName}</span>
-                                                    <br/>
-                                                    <span>
-                                                        {`${formatCommentDate(item.createdAt, locale)} прокоментировал`}
-                                                    </span>
-                                                    <div style={commentBlockStyle}>
-                                                        <p style={{
-                                                            padding: '5px 5px 15px 10px',
-                                                        }}>
-                                                            {item.comment}
-                                                        </p>
-                                                    </div>
+        <DrawerComponent
+            title={`№ ${selectedTask.id} ${selectedTask.name}`}
+            width={'60%'}
+            height={'auto'}
+            onClose={onClose}
+            visible={visible}
+            children={
+                <Form layout="vertical">
+                    <Row>
+                        <Col span={19}>
+                            <Row>
+                                <span>
+                                    Описание
+                                </span>
+                                <div>
+                                    {selectedTask.description}
+                                </div>
+                            </Row>
+                            <Row className={'first-col-row-item'}>
+                                <Form.Item
+                                    label={'Комментарии'}
+                                >
+                                    <Input.TextArea
+                                        rows={4}
+                                        value={comment}
+                                        style={{minHeight: '120px', maxHeight: '120px', borderRadius: 0}}
+                                        onChange={(event: any) => setComment(event.target.value)}
+                                    />
+                                    <RounderButton
+                                        style={{ marginTop: '10px', width: 181 }}
+                                        title={'Сохранить'}
+                                        handle={editRequestData}
+                                    />
+                                </Form.Item>
+                            </Row>
+                            <Row className={'first-col-row-item'}>
+                                {
+                                    selectedTask.lifetimeItems?.map((item: any, index: number) =>
+                                        <>
+                                            {index !== 0 && <hr/>}
+                                            <div
+                                                key={item.id}
+                                            >
+                                                <span>{item.userName}</span>
+                                                <br/>
+                                                <span>
+                                                    {`${formatCommentDate(item.createdAt, locale)} прокоментировал`}
+                                                </span>
+                                                <div style={commentBlockStyle}>
+                                                    <p style={{
+                                                        padding: '5px 5px 15px 10px',
+                                                    }}>
+                                                        {item.comment}
+                                                    </p>
                                                 </div>
-                                            </>
-                                        )
+                                            </div>
+                                        </>
+                                    )
+                                }
+                            </Row>
+                        </Col>
+                        <Col span={5} style={{ paddingLeft: 30 }}>
+                            <Row>
+                                <Select
+                                    value={statusValue}
+                                    onChange={(value: string) => {
+                                        setStatusValue(value);
+                                        setStatusId(
+                                            statuses?.find((status: statusType) => status.name === value)?.id
+                                        );
+                                    }}>
+                                    {
+                                        statuses?.map((item: any) => <Option
+                                            key={item.name}
+                                            value={item.name}
+                                        >
+                                            {item.name}
+                                        </Option>)
                                     }
-                                </Row>
-                            </Col>
-                            <Col span={5} style={{ paddingLeft: 30 }}>
-                                <Row>
+                                </Select>
+                            </Row>
+                            <Row className={'second-col-row-item'}>
+                                <Form.Item label={'Заявитель'}>
+                                    {selectedTask.executorGroupName}
+                                </Form.Item>
+                            </Row>
+                            <Row className={'second-col-row-item'}>
+                                <Form.Item label={'Создана'}>
+                                   <span>
+                                       {selectedTask.initiatorName}
+                                   </span>
+                                </Form.Item>
+                            </Row>
+                            <Row className={'second-col-row-item'}>
+                                <Form.Item label={'Исполнитель'}>
                                     <Select
-                                        value={statusValue}
+                                        value={userValue}
                                         onChange={(value: string) => {
-                                            setStatusValue(value);
-                                            setStatusId(
-                                                statuses?.find((status: statusType) => status.name === value)?.id
+                                            setUserValue(value);
+                                            setUserId(
+                                                users?.find((user: userType) => user.name === value)?.id
                                             );
-                                        }}>
+                                        }}
+                                        style={{ color: '#1974D2' }}
+                                    >
                                         {
-                                            statuses?.map((item: any) => <Option
-                                                key={item.name}
+                                            users?.map((item: any) => <Option
+                                                key={item.id}
                                                 value={item.name}
                                             >
                                                 {item.name}
                                             </Option>)
                                         }
                                     </Select>
-                                </Row>
-                                <Row className={'second-col-row-item'}>
-                                    <Form.Item
-                                        name={'Заявитель'}
-                                        label={'Заявитель'}
-                                    >
-                                        {selectedTask.executorGroupName}
-                                    </Form.Item>
-                                </Row>
-                                <Row className={'second-col-row-item'}>
-                                    <Form.Item
-                                        name={'Created'}
-                                        label={'Создана'}
-                                    >
-                                       <span>
-                                           {selectedTask.initiatorName}
-                                       </span>
-                                    </Form.Item>
-                                </Row>
-                                <Row className={'second-col-row-item'}>
-                                    <Form.Item
-                                        name={'Executor'}
-                                        label={'Исполнитель'}
-                                    >
-                                        <Select
-                                            value={userValue}
-                                            onChange={(value: string) => {
-                                                setUserValue(value);
-                                                setUserId(
-                                                    users?.find((user: userType) => user.name === value)?.id
-                                                );
-                                            }}
-                                            style={{ color: '#1974D2' }}
+                                </Form.Item>
+                            </Row>
+                            <Row className={'second-col-row-item'}>
+                                <Form.Item label={'Приоритет'}>
+                                    <span>
+                                        {selectedTask.priorityName}
+                                    </span>
+                                </Form.Item>
+                            </Row>
+                            <Row className={'second-col-row-item'}>
+                                <Form.Item label={'Срок'}>
+                                    <span>
+                                        {`${formatYearDate(selectedTask.resolutionDatePlan)}г`}
+                                    </span>
+                                </Form.Item>
+                            </Row>
+                            <Row className={'second-col-row-item'}>
+                                <Form.Item label={'Теги'}>
+                                    {selectedTask.tags?.map((item: tagType) => (
+                                        <div
+                                            key={item.id}
+                                            style={tagBlockStyle}
                                         >
-                                            {
-                                                users?.map((item: any) => <Option
-                                                    key={item.id}
-                                                    value={item.name}
-                                                >
-                                                    {item.name}
-                                                </Option>)
-                                            }
-                                        </Select>
-                                    </Form.Item>
-                                </Row>
-                                <Row className={'second-col-row-item'}>
-                                    <Form.Item
-                                        name={'Priority'}
-                                        label={'Приоритет'}
-                                    >
-                                        <span>
-                                            {selectedTask.priorityName}
-                                        </span>
-                                    </Form.Item>
-                                </Row>
-                                <Row className={'second-col-row-item'}>
-                                    <Form.Item
-                                        name={'Deadline'}
-                                        label={'Срок'}
-                                    >
-                                        <span>
-                                            {`${formatYearDate(selectedTask.resolutionDatePlan)}г`}
-                                        </span>
-                                    </Form.Item>
-                                </Row>
-                                <Row className={'second-col-row-item'}>
-                                    <Form.Item
-                                        name={'Tags'}
-                                        label={'Теги'}
-                                    >
-                                        {
-                                            selectedTask.tags?.map((item: tagType) => <div
-                                                    key={item.id}
-                                                    style={tagBlockStyle}
-                                                >
-                                                    {item.name}
-                                                </div>
-                                            )
-                                        }
-                                    </Form.Item>
-                                </Row>
-                            </Col>
-                        </Row>
-                    </Form>
-                }
-            />
-        </>
+                                            {item.name}
+                                        </div>
+                                    ))}
+                                </Form.Item>
+                            </Row>
+                        </Col>
+                    </Row>
+                </Form>
+            }
+        />
     )
 }
 

@@ -8,20 +8,12 @@ export interface Props {
     handle: any;
 }
 
-export const RounderButton: FC<Props> = (props) => {
-    const {
-        style,
-        title,
-        handle,
-    } = props;
-
-    return (
-        <>
-            <Button type="primary" size='large' shape="round" style={style} onClick={handle}>
-                {title}
-            </Button>
-        </>
-    )
-}
+export const RounderButton: FC<Props> = ({ style, title, handle }: Props) => (
+    <>
+        <Button type="primary" size='large' shape="round" style={style} onClick={handle}>
+            {title}
+        </Button>
+    </>
+);
 
 export default RounderButton;

@@ -2,11 +2,11 @@ import React, { FC } from 'react';
 
 export const FolderIcon: FC = () => (
     <svg
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
         width="24"
         height="24"
         viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
     >
         <path
             d="M18 8H8.61803C8.23926 8 7.893 7.786 7.72361 7.44721L7.27639 6.55279C7.107 6.214 6.76074 6 6.38197 6L3
