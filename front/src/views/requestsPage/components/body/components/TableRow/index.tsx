@@ -11,7 +11,6 @@ export interface Props<T> {
 
 export const TableRow: FC<Props<object>> = (props) => {
     const {
-        data,
         handleEditForm,
     } = props;
     const dispatch = useDispatch();
@@ -19,6 +18,79 @@ export const TableRow: FC<Props<object>> = (props) => {
     const getSelectedTaskId = (id: number) => {
         dispatch(requestPageActions.getTaskById(id));
     }
+
+    const data = [
+        {
+            id: 1,
+            name: 'Fakhri',
+            statusName: 'single',
+            executorName: 'Khumay',
+            executorId: 2,
+        },
+        {
+            id: 2,
+            name: 'Khumay',
+            statusName: 'married',
+            executorName: 'Fakhri',
+            executorId: 1,
+        },
+        {
+            id: 1,
+            name: 'Fakhri',
+            statusName: 'single',
+            executorName: 'Khumay',
+            executorId: 1,
+        },
+        {
+            id: 1,
+            name: 'Fakhri',
+            statusName: 'single',
+            executorName: 'Khumay',
+            executorId: 1,
+        },
+        {
+            id: 1,
+            name: 'Fakhri',
+            statusName: 'single',
+            executorName: 'Khumay',
+            executorId: 1,
+        },
+        {
+            id: 1,
+            name: 'Fakhri',
+            statusName: 'single',
+            executorName: 'Khumay',
+            executorId: 1,
+        },
+        {
+            id: 1,
+            name: 'Fakhri',
+            statusName: 'single',
+            executorName: 'Khumay',
+            executorId: 1,
+        },
+        {
+            id: 1,
+            name: 'Fakhri',
+            statusName: 'single',
+            executorName: 'Khumay',
+            executorId: 1,
+        },
+        {
+            id: 1,
+            name: 'Fakhri',
+            statusName: 'single',
+            executorName: 'Khumay',
+            executorId: 1,
+        },
+        {
+            id: 1,
+            name: 'Fakhri',
+            statusName: 'single',
+            executorName: 'Khumay',
+            executorId: 1,
+        },
+    ]
 
     const columns = [
         {

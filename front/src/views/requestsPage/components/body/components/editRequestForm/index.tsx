@@ -48,11 +48,11 @@ export const EditRequestForm: FC<Props> = (props) => {
         selectedTask,
     } = props;
     const dispatch = useDispatch();
-    const [userId, setUserId] = useState(selectedTask.executorId);
+    const [userId, setUserId] = useState(selectedTask?.executorId);
     const [comment, setComment] = useState('');
-    const [statusId, setStatusId] = useState(selectedTask.statusId);
-    const [userValue, setUserValue] = useState(selectedTask.executorName);
-    const [statusValue, setStatusValue] = useState(selectedTask.statusName);
+    const [statusId, setStatusId] = useState(selectedTask?.statusId);
+    const [userValue, setUserValue] = useState(selectedTask?.executorName);
+    const [statusValue, setStatusValue] = useState(selectedTask?.statusName);
 
     const commentBlockStyle = {
         borderRadius: 5,
@@ -75,10 +75,10 @@ export const EditRequestForm: FC<Props> = (props) => {
     };
 
     useEffect(() => {
-        setUserId(selectedTask.executorId);
-        setStatusId(selectedTask.statusId);
-        setUserValue(selectedTask.executorName);
-        setStatusValue(selectedTask.statusName);
+        setUserId(selectedTask?.executorId);
+        setStatusId(selectedTask?.statusId);
+        setUserValue(selectedTask?.executorName);
+        setStatusValue(selectedTask?.statusName);
     }, [selectedTask]);
 
     const cleanComment = () => {
@@ -87,7 +87,7 @@ export const EditRequestForm: FC<Props> = (props) => {
 
     const editRequestData = () => {
         dispatch(requestPageActions.editTask({
-            id: selectedTask.id,
+            id: selectedTask?.id,
             comment: (comment) ? comment : undefined,
             statusId,
             executorId: userId,
@@ -100,7 +100,7 @@ export const EditRequestForm: FC<Props> = (props) => {
     return (
         <>
             <DrawerComponent
-                title={`№ ${selectedTask.id} ${selectedTask.name}`}
+                title={`№ ${selectedTask?.id} ${selectedTask?.name}`}
                 width={'60%'}
                 height={'auto'}
                 onClose={onClose}
@@ -114,7 +114,7 @@ export const EditRequestForm: FC<Props> = (props) => {
                                         Описание
                                     </span>
                                     <div>
-                                        {selectedTask.description}
+                                        {selectedTask?.description}
                                     </div>
                                 </Row>
                                 <Row className={'first-col-row-item'}>
@@ -137,11 +137,11 @@ export const EditRequestForm: FC<Props> = (props) => {
                                 </Row>
                                 <Row className={'first-col-row-item'}>
                                     {
-                                        selectedTask.lifetimeItems?.map((item: any, index: number) =>
+                                        selectedTask?.lifetimeItems?.map((item: any, index: number) =>
                                             <>
                                                 {index !== 0 && <hr/>}
                                                 <div
-                                                    key={item.id}
+                                                    key={item?.id}
                                                 >
                                                     <span>{item.userName}</span>
                                                     <br/>
@@ -186,7 +186,7 @@ export const EditRequestForm: FC<Props> = (props) => {
                                         name={'Заявитель'}
                                         label={'Заявитель'}
                                     >
-                                        {selectedTask.executorGroupName}
+                                        {selectedTask?.executorGroupName}
                                     </Form.Item>
                                 </Row>
                                 <Row className={'second-col-row-item'}>
